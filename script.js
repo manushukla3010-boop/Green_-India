@@ -1,44 +1,53 @@
-// Show welcome message when page loads
-window.onload = function () {
-    alert("🌿 Welcome to Green India! Together we can make India greener.");
-};
-
-// Join button click
-<a href="register.html" class="btn">Join Now</a>
-const joinBtn = document.querySelector(".btn");
-
-if (joinBtn) {
-    joinBtn.addEventListener("click", function (event) {
-        event.preventDefault();
-        alert("✅ Thank you for joining the Green India Campaign!");
-    });
-}
-
-// Card hover effect
-const cards = document.querySelectorAll(".card");
-
-cards.forEach(card => {
-    card.addEventListener("mouseenter", function () {
-        this.style.boxShadow = "0 10px 20px rgba(0,0,0,0.3)";
-    });
-
-    card.addEventListener("mouseleave", function () {
-        this.style.boxShadow = "0 5px 10px rgba(0,0,0,0.15)";
-    });
+// Welcome message
+window.addEventListener("load", () => {
+    console.log("Welcome to Green India!");
 });
 
-// Display current year in footer (if an element with id="year" exists)
-const year = document.getElementById("year");
+// 🌳 Tree Counter
+let treeCount = 0;
 
-if (year) {
-    year.textContent = new Date().getFullYear();
+const treeCountDisplay = document.getElementById("treeCount");
+const plantTreeBtn = document.getElementById("plantTreeBtn");
+
+if (plantTreeBtn && treeCountDisplay) {
+    plantTreeBtn.addEventListener("click", () => {
+        treeCount++;
+        treeCountDisplay.textContent = treeCount;
+        alert("🌱 Thank you! You planted a virtual tree.");
+    });
 }
 
-// Thank volunteer button (if present)
-const volunteerBtn = document.getElementById("volunteerBtn");
+// 🌙 Dark Mode
+const darkModeBtn = document.getElementById("darkModeBtn");
 
-if (volunteerBtn) {
-    volunteerBtn.addEventListener("click", function () {
-        alert("🌱 Thank you for volunteering! Together we will build a greener India.");
+if (darkModeBtn) {
+    darkModeBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
     });
+}
+
+// 📝 Volunteer Form Validation
+const volunteerForm = document.getElementById("volunteerForm");
+
+if (volunteerForm) {
+    volunteerForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+
+        if (name === "" || email === "") {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        alert(`Thank you, ${name}! You have successfully registered as a volunteer.`);
+        volunteerForm.reset();
+    });
+}
+
+// 📅 Footer Year
+const year = document.getElementById("year");
+if (year) {
+    year.textContent = new Date().getFullYear();
 }
