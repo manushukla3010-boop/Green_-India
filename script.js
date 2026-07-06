@@ -51,3 +51,12 @@ const year = document.getElementById("year");
 if (year) {
     year.textContent = new Date().getFullYear();
 }
+
+{
+    function joinNow() {
+    alert("🌱 Thank you for joining the Green India Campaign!");
+
+    // Redirect to registration page (optional)
+    // window.location.href = "register.html";
+}
+}
