@@ -4,6 +4,7 @@ window.onload = function () {
 };
 
 // Join button click
+<a href="register.html" class="btn">Join Now</a>
 const joinBtn = document.querySelector(".btn");
 
 if (joinBtn) {
